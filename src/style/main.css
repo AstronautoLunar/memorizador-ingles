@@ -47,7 +47,7 @@ body {
 }
 
 .item {
-    color: var(--dark-comflower-blue);
+    color: var(--blue-crayola);
 
     font-size: 25px;
 
@@ -56,7 +56,7 @@ body {
 
     border-width: 1px;
     border-style: solid;
-    border-color: var(--dark-comflower-blue);
+    border-color: var(--blue-crayola);
     border-radius: 20px;
 
     transition-property: 
@@ -76,4 +76,81 @@ body {
     background-color: var(--blue-crayola);
 
     transform: scale(1.2);
+}
+
+#panel-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#quantity-ask {
+    font-size: 50px;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+    color: var(--blue-crayola);
+    background-color: var(--eerie-black);
+    
+    padding: 10px;
+
+    outline: none;
+}
+
+#quantity-ask,
+#button-start
+{
+    width: 300px;
+
+    border: 2px solid var(--blue-crayola);
+
+    transition-property: background-color, color;
+    transition-duration: 500ms;
+
+    text-align: center;
+}
+
+#button-start {
+    font-size: 42px;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    outline: none;
+    
+    padding: 10px;
+
+    background-color: var(--eerie-black);
+    color: var(--blue-crayola);
+}
+
+#button-start:hover,
+#quantity-ask:focus
+{
+    background-color: var(--blue-crayola);
+    color: var(--eerie-black);
+}
+
+#error {
+    height: 0;
+
+    overflow: hidden;
+
+    color: var(--bright-yellow-crayola);
+
+    font-size: 25px;
+
+    transition: height 500ms;
+}
+
+#button-start[ disabled ] {
+    border-color: var(--gray);
+
+    color: var(--gray);
+}
+
+#button-start[ disabled ]:hover {
+    background-color: var(--gray);
+    color: var(--eerie-black);
 }
