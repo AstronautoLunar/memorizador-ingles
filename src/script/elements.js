@@ -1,0 +1,1 @@
+const panelChoose = window.document.getElementById("panel-choose");
