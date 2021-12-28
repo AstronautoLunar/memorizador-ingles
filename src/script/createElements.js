@@ -21,6 +21,21 @@ async function generateElementsOfItems({
             </span>
         `
     ));
+
+    const item = window.document.querySelectorAll(".item");
+
+    item.forEach(item => {
+        const value = item.innerText;
+        const data = item.dataset.translate;
+        
+        item.addEventListener("mouseenter", ({ target }) => (
+            target.innerText = data
+        ));
+        
+        item.addEventListener("mouseleave", ({ target }) => (
+            target.innerText = value
+        ));
+    });
 }
 
 generateElementsOfItems({
