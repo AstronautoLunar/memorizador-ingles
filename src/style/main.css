@@ -99,6 +99,10 @@ body {
     outline: none;
 }
 
+#quantity-ask::placeholder {
+    color: var(--space-cadet);
+}
+
 #quantity-ask,
 #button-start
 {

@@ -24,7 +24,8 @@ const lettersAlphabet = [
     "w",
     "x",
     "y",
-    "z"
+    "z",
+    "ç"
 ]
 
 let error = false;
@@ -58,6 +59,3 @@ quantityAsk.addEventListener("input", ({ target }) => {
         }
     }
 })
-
-
-
