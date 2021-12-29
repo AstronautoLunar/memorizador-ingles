@@ -20,24 +20,37 @@
     <body>
         <main id="main">
             <div id="container">
-                <div id="panel-choose">
-
+                <div id="panel-choose-items">
+                    <div id="panel-choose">
+    
+                    </div>
+                    <div id="panel-start">
+                        <input
+                            id="quantity-ask"
+                            type="text"
+                            placeholder="Quantidade"
+                        />
+                        <span 
+                            id="error"
+                            class="on"
+                        >
+                            A entrada somente aceita números
+                        </span>
+                        <button id="button-start">
+                            Começar
+                        </button>
+                    </div>
                 </div>
-                <div id="panel-start">
-                    <input
-                        id="quantity-ask"
-                        type="text"
-                        placeholder="Quantidade"
-                    />
-                    <span 
-                        id="error"
-                        class="on"
-                    >
-                        A entrada somente aceita números
+                <div id="panel-quiz">
+                    <span id="word">
+                        olá
                     </span>
-                    <button id="button-start">
-                        Começar
-                    </button>
+
+                    <input
+                        id="answer"
+                        type="text"
+                        placeholder="Resposta"
+                    />
                 </div>
             </div>
         </main>
@@ -46,5 +59,6 @@
         <script src="./script/randomColor.js"></script>
         <script src="./script/createElements.js"></script>
         <script src="./script/verifyInputs.js"></script>
+        <script src="./script/start.js"></script>
     </body>
 </html>
