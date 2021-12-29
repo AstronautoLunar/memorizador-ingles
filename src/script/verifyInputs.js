@@ -28,9 +28,7 @@ const lettersAlphabet = [
     "ç"
 ]
 
-let error = false;
-
-function applyStyleForModeError(error) {
+function applyModeError(error) {
     if(error) {
         messageError.style.height = "30px";
         buttonStart.setAttribute("disabled", "");
@@ -47,14 +45,10 @@ quantityAsk.addEventListener("input", ({ target }) => {
     for(let letterInput of lettersInput) {
         for(let letterAlphabet of lettersAlphabet) {
             if(letterInput === letterAlphabet) {
-                error = true;
-
-                applyStyleForModeError(error);
+                applyModeError(true);
                 break;
             } else {
-                error = false;
-
-                applyStyleForModeError(error);
+                applyModeError(false);
             }
         }
     }

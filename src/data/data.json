@@ -1,12 +1,12 @@
 {
     "words": [
         {
-            "original": "will",
-            "translateBr": "vai"
+            "US": "will",
+            "BR": "vai"
         },
         {
-            "original": "see",
-            "translateBr": "vejo"
+            "US": "see",
+            "BR": "vejo"
         }
     ]
 }

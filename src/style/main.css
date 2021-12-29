@@ -47,8 +47,6 @@ body {
 }
 
 .item {
-    color: var(--blue-crayola);
-
     font-size: 25px;
 
     margin: 10px;
@@ -56,26 +54,17 @@ body {
 
     border-width: 1px;
     border-style: solid;
-    border-color: var(--blue-crayola);
     border-radius: 20px;
 
     transition-property: 
         border, 
         color, 
         background-color, 
-        transform;
+        transform
+        box-shadow;
     transition-duration: 500ms;
 
     cursor: pointer;
-}
-
-.item:hover {
-    border-color: var(--blue-crayola);
-
-    color: var(--eerie-black);
-    background-color: var(--blue-crayola);
-
-    transform: scale(1.2);
 }
 
 #panel-start {
