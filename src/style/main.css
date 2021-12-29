@@ -172,6 +172,10 @@ body {
     margin-bottom: 40px;
 }
 
+#area-input {
+    width: 300px;
+}
+
 #answer {
     border: 1px solid var(--blue-crayola);
     border-radius: 10px;
@@ -179,7 +183,7 @@ body {
     
     padding: 10px;
     
-    font-size: 25px;
+    
     
     background-color: var(--eerie-black);
 
@@ -199,12 +203,46 @@ body {
     background-color: var(--blue-crayola);
 }
 
+#answer,
+#hit-word
+{
+    width: 100%;
+
+    font-size: 25px;
+}
+
+#hit-word {
+    outline: none;
+    border: 1px solid var(--blue-crayola);
+
+    border-radius: 10px;
+
+    background-color: var(--blue-crayola);
+    
+    color: var(--eerie-black);
+
+    margin-top: 16px;
+
+    padding: 10px;
+}
+
 .hidden-element {
-    animation: hidden 500ms;
+    animation-name: hidden;
 }
 
 .show-element {
-    animation: show 500ms;
+    animation-name: show;
+}
+
+.press-element {
+    animation-name: press;
+}
+
+.hidden-element,
+.show-element,
+.press-element
+{
+    animation-duration: 500ms;
 }
 
 @keyframes hidden {
@@ -224,5 +262,19 @@ body {
 
     to {
         opacity: 1;
+    }
+}
+
+@keyframes press {
+    0% {
+        transform: scale(1.0);
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1.0);
     }
 }

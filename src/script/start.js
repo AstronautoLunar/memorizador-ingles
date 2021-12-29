@@ -1,5 +1,22 @@
 let arrayItemsChoose = [];
-const HALFASECONDSINMILISECONDS = 500
+const HALFASECONDSINMILISECONDS = 500;
+let indexRandomItem = 0;
+
+function randomNumber(max) {
+    return Math.floor(Math.random() * max);
+} 
+
+function changeVisibleElement({
+    element,
+    classElement,
+    display,
+    time
+}) {
+    element.classList.add(classElement);
+    setTimeout(() => {
+        element.style.display = display;
+    }, time);
+}
 
 buttonStart.addEventListener("click", () => {
     const items = window.document.querySelectorAll(".item");
@@ -26,13 +43,19 @@ buttonStart.addEventListener("click", () => {
         }
     }
 
-    panelChooseItems.classList.add("hidden-element");
-    setTimeout(() => {
-        panelChooseItems.style.display = "none";
-    }, HALFASECONDSINMILISECONDS);
+    changeVisibleElement({
+        element: panelChooseItems,
+        classElement: "hidden-element",
+        display: "none",
+        time: HALFASECONDSINMILISECONDS
+    });
 
-    panelQuiz.classList.add("show-element");
-    setTimeout(() => {
-        panelQuiz.style.display = "flex";
-    }, HALFASECONDSINMILISECONDS);
+    changeVisibleElement({
+        element: panelQuiz,
+        classElement: "show-element",
+        display: "flex",
+        time: HALFASECONDSINMILISECONDS
+    });
+
+    indexRandomItem = randomNumber(arrayItemsChoose.length);
 })
