@@ -9,3 +9,4 @@ const verifyButton = window.document.getElementById("verify");
 const nextButton = window.document.getElementById("next");
 const inputAnswer = window.document.getElementById("answer");
 const wordResponse = window.document.getElementById("word-response");
+const showWordButton = window.document.getElementById("show-word");

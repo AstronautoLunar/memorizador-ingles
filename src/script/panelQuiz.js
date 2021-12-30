@@ -11,6 +11,15 @@ function applyAnimationPress(target) {
 }
 
 verifyButton.addEventListener("click", ({ target }) => {
+    applyAnimationPress(target);
+
+    changeVisibleElement({
+        element: wordResponse,
+        classElement: "show-element",
+        display: "block",
+        time: HALFASECONDSINMILISECONDS
+    });
+
     const answerValue = inputAnswer.value;
     const translateValue = itemSelected.translate;
     const valueWordSelect = wordSelected.innerText;
@@ -28,11 +37,11 @@ verifyButton.addEventListener("click", ({ target }) => {
     }
 
     wordResponse.innerText = answerValue;
-
-    applyAnimationPress(target);
 });
 
 nextButton.addEventListener("click", ({ target }) => {
+    applyAnimationPress(target);
+
     for(let i = 0; i <= 5; i++) {
         if(oldIndex === indexRandomItem) {
             indexRandomItem = randomNumber(arrayItemsChoose.length);
@@ -52,11 +61,8 @@ nextButton.addEventListener("click", ({ target }) => {
     oldIndex = indexRandomItem;
 
     count += 1;
-    console.log(count);
-    console.log(valueQuantityAsk);
 
     const isCountQuantity = count === valueQuantityAsk;
-    console.log(isCountQuantity);
 
     if(isCountQuantity) {
         changeVisibleElement({
@@ -74,7 +80,29 @@ nextButton.addEventListener("click", ({ target }) => {
         });
 
         count = 0;
-    }
 
+        arrayItemsChoose = [];
+
+        changeVisibleElement({
+            element: wordResponse,
+            classElement: "hidden-element",
+            display: "none",
+            time: HALFASECONDSINMILISECONDS
+        });
+    }
+});
+
+showWordButton.addEventListener("click", ({ target }) => {
     applyAnimationPress(target);
-})
+    const { mode } = target.dataset;
+
+    if(mode === "hidden") {
+        wordSelected.innerText = itemSelected.translate;
+
+        target.dataset.mode = "show"
+    } else {
+        wordSelected.innerText = itemSelected.original;
+
+        target.dataset.mode = "hidden"
+    }
+});
