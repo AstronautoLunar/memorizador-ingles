@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Meta dados-->
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        
+        <title>Memorizador inglês</title>
+
+        <link
+            href="style/globals.css"
+            rel="stylesheet"
+        />
+        <link
+            href="style/main.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <main id="main">
+            <div id="container">
+                <div id="panel-choose-items">
+                    <div id="panel-choose">
+    
+                    </div>
+                    <div id="panel-start">
+                        <input
+                            id="quantity-ask"
+                            type="text"
+                            placeholder="Quantidade"
+                        />
+                        <span 
+                            id="error"
+                            class="on"
+                        >
+                            A entrada somente aceita números
+                        </span>
+                        <button id="button-start">
+                            Começar
+                        </button>
+                    </div>
+                </div>
+                <div id="panel-quiz">
+                    <div id="words-verify">
+                        <span id="word-selected">
+                        </span>
+    
+                        <span id="word-response">
+                        </span>
+                    </div>
+
+                    <div id="area-input">
+                        <input
+                            id="answer"
+                            type="text"
+                            placeholder="Resposta"
+                        />
+                        <div id="buttons-line">
+                            <button id="verify">
+                                Verificar
+                            </button>
+                            <button id="next">
+                                Próximo
+                            </button>
+                        </div>
+                        <button 
+                            id="show-word"
+                            data-mode="hidden"
+                        >
+                            Mostrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="./script/elements.js"></script>
+        <script src="./script/randomColor.js"></script>
+        <script src="./script/createElements.js"></script>
+        <script src="./script/verifyInputs.js"></script>
+        <script src="./script/start.js"></script>
+        <script src="./script/panelQuiz.js"></script>
+    </body>
+</html>
