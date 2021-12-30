@@ -11,17 +11,22 @@ function applyAnimationPress(target) {
 
 verifyButton.addEventListener("click", ({ target }) => {
     const answerValue = inputAnswer.value;
-    const originalValue = itemSelected.original;
+    const translateValue = itemSelected.translate;
+    const valueWordSelect = wordSelected.innerText;
 
-    if(answerValue === originalValue) {
+    if(answerValue === translateValue) {
         wordResponse.classList.add("hit-word");
         wordResponse.classList.remove("miss-word");
+        
+        wordSelected.innerText = valueWordSelect + ` - ${translateValue}`;
     } else {
         wordResponse.classList.add("miss-word");
         wordResponse.classList.remove("hit-word");
     }
 
+
     wordResponse.innerText = answerValue;
+    
 
     applyAnimationPress(target);
 });
