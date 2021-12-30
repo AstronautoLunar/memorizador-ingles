@@ -2,6 +2,7 @@ let arrayItemsChoose = [];
 const HALFASECONDSINMILISECONDS = 500;
 let indexRandomItem = 0;
 let itemSelected = {};
+let valueQuantityAsk = 0;
 
 function randomNumber(max) {
     return Math.floor(Math.random() * max);
@@ -26,6 +27,10 @@ function applyItemSelected({
     wordSelected.innerText = text;
     wordSelected.style.color = color
 }
+
+quantityAsk.addEventListener("change", ({ target }) => {
+    valueQuantityAsk = Number(target.value);
+});
 
 buttonStart.addEventListener("click", () => {
     const items = window.document.querySelectorAll(".item");
@@ -71,6 +76,10 @@ buttonStart.addEventListener("click", () => {
     indexRandomItem = randomNumber(arrayItemsChoose.length);
 
     itemSelected = arrayItemsChoose[indexRandomItem];
+
+    if(!quantityAsk.value) {
+        valueQuantityAsk = 10;
+    }
 
     applyItemSelected({
         text: itemSelected.original,

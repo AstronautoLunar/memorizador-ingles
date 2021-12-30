@@ -1,4 +1,5 @@
 let oldIndex = 0;
+let count = 0;
 
 function applyAnimationPress(target) {
     target.classList.add("press-element");
@@ -13,20 +14,20 @@ verifyButton.addEventListener("click", ({ target }) => {
     const answerValue = inputAnswer.value;
     const translateValue = itemSelected.translate;
     const valueWordSelect = wordSelected.innerText;
-
-    if(answerValue === translateValue) {
-        wordResponse.classList.add("hit-word");
-        wordResponse.classList.remove("miss-word");
-        
-        wordSelected.innerText = valueWordSelect + ` - ${translateValue}`;
-    } else {
-        wordResponse.classList.add("miss-word");
-        wordResponse.classList.remove("hit-word");
+    
+    if(answerValue) {
+        if(answerValue === translateValue) {
+            wordResponse.classList.add("hit-word");
+            wordResponse.classList.remove("miss-word");
+            
+            wordSelected.innerText = valueWordSelect + ` - ${translateValue}`;
+        } else {
+            wordResponse.classList.add("miss-word");
+            wordResponse.classList.remove("hit-word");
+        }
     }
 
-
     wordResponse.innerText = answerValue;
-    
 
     applyAnimationPress(target);
 });
@@ -49,6 +50,31 @@ nextButton.addEventListener("click", ({ target }) => {
     });
 
     oldIndex = indexRandomItem;
+
+    count += 1;
+    console.log(count);
+    console.log(valueQuantityAsk);
+
+    const isCountQuantity = count === valueQuantityAsk;
+    console.log(isCountQuantity);
+
+    if(isCountQuantity) {
+        changeVisibleElement({
+            element: panelChooseItems,
+            classElement: "show-element",
+            display: "flex",
+            time: HALFASECONDSINMILISECONDS
+        });
+    
+        changeVisibleElement({
+            element: panelQuiz,
+            classElement: "hidden-element",
+            display: "none",
+            time: HALFASECONDSINMILISECONDS
+        });
+
+        count = 0;
+    }
 
     applyAnimationPress(target);
 })
