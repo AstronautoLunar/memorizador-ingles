@@ -1,7 +1,32 @@
-const hitWord = window.document.querySelector("#hit-word");
-
 let oldIndex = 0;
-hitWord.addEventListener("click", ({ target }) => {
+
+function applyAnimationPress(target) {
+    target.classList.add("press-element");
+    let time;
+    clearTimeout(time);
+    time = setTimeout(() => {
+        target.classList.remove("press-element");
+    }, HALFASECONDSINMILISECONDS);
+}
+
+verifyButton.addEventListener("click", ({ target }) => {
+    const answerValue = inputAnswer.value;
+    const originalValue = itemSelected.original;
+
+    if(answerValue === originalValue) {
+        wordResponse.classList.add("hit-word");
+        wordResponse.classList.remove("miss-word");
+    } else {
+        wordResponse.classList.add("miss-word");
+        wordResponse.classList.remove("hit-word");
+    }
+
+    wordResponse.innerText = answerValue;
+
+    applyAnimationPress(target);
+});
+
+nextButton.addEventListener("click", ({ target }) => {
     for(let i = 0; i <= 5; i++) {
         if(oldIndex === indexRandomItem) {
             indexRandomItem = randomNumber(arrayItemsChoose.length);
@@ -9,12 +34,16 @@ hitWord.addEventListener("click", ({ target }) => {
         }
     }
 
+    itemSelected = arrayItemsChoose[indexRandomItem];
+
+    wordSelected.innerText = itemSelected.original;
+
+    applyItemSelected({
+        text: itemSelected.original,
+        color: itemSelected.color
+    });
+
     oldIndex = indexRandomItem;
 
-    target.classList.add("press-element");
-    let time;
-    clearTimeout(time);
-    time = setTimeout(() => {
-        target.classList.remove("press-element");
-    }, HALFASECONDSINMILISECONDS);
-});
+    applyAnimationPress(target);
+})

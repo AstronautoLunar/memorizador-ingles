@@ -57,7 +57,7 @@ body {
         border, 
         color, 
         background-color, 
-        transform
+        transform,
         box-shadow;
     transition-duration: 500ms;
 
@@ -166,14 +166,30 @@ body {
     display: none;
 }
 
-#word {
-    font-size: 50px;
+#words-verify {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    margin-bottom: 40px;
+#word-selected {
+    font-size: 50px;
+}
+
+#word-selected,
+#word-response
+{
+    transition-property:
+        color,
+        background-color;
+    transition-duration: 500ms;
 }
 
 #area-input {
     width: 300px;
+
+    margin-top: 40px;
 }
 
 #answer {
@@ -183,13 +199,12 @@ body {
     
     padding: 10px;
     
-    
-    
     background-color: var(--eerie-black);
-
+    color: var(--blue-crayola);
+    
     transition-property: 
-        border,
-        background-color;
+    border,
+    background-color;
     transition-duration: 500ms;
 }
 
@@ -203,27 +218,78 @@ body {
     background-color: var(--blue-crayola);
 }
 
+#buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 16px;
+}
+
 #answer,
-#hit-word
+#buttons
 {
     width: 100%;
+}
 
+#answer,
+#verify,
+#next
+{
     font-size: 25px;
 }
 
-#hit-word {
-    outline: none;
+
+#verify {
     border: 1px solid var(--blue-crayola);
+
+    background-color: var(--blue-crayola);
+
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#verify,
+#next
+{
+    flex: 1;
+    
+    outline: none;
+    
+    color: var(--eerie-black);
+    
+    padding: 10px;
+}
+
+#next {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    border: 1px solid var(--medium-spring-green);
+
+    background-color: var(--medium-spring-green);
+}
+
+#word-response {
+    padding: 5px;
 
     border-radius: 10px;
 
-    background-color: var(--blue-crayola);
-    
+    font-size: 50px;
+}
+
+.hit-word {
+    background-color: var(--medium-spring-green);
+}
+
+.hit-word,
+.miss-word
+{
     color: var(--eerie-black);
+}
 
-    margin-top: 16px;
-
-    padding: 10px;
+.miss-word {
+    background-color: var(--paradise-pink);
 }
 
 .hidden-element {

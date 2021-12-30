@@ -1,6 +1,7 @@
 let arrayItemsChoose = [];
 const HALFASECONDSINMILISECONDS = 500;
 let indexRandomItem = 0;
+let itemSelected = {};
 
 function randomNumber(max) {
     return Math.floor(Math.random() * max);
@@ -18,6 +19,14 @@ function changeVisibleElement({
     }, time);
 }
 
+function applyItemSelected({ 
+    text, 
+    color 
+}) {
+    wordSelected.innerText = text;
+    wordSelected.style.color = color
+}
+
 buttonStart.addEventListener("click", () => {
     const items = window.document.querySelectorAll(".item");
     
@@ -25,7 +34,8 @@ buttonStart.addEventListener("click", () => {
         let { 
             translate, 
             original, 
-            selected 
+            selected,
+            color
         } = item.dataset;
     
         if(selected === "true") {
@@ -38,7 +48,8 @@ buttonStart.addEventListener("click", () => {
             arrayItemsChoose.push({
                 translate,
                 original,
-                selected
+                selected,
+                color
             });
         }
     }
@@ -58,4 +69,11 @@ buttonStart.addEventListener("click", () => {
     });
 
     indexRandomItem = randomNumber(arrayItemsChoose.length);
+
+    itemSelected = arrayItemsChoose[indexRandomItem];
+
+    applyItemSelected({
+        text: itemSelected.original,
+        color: itemSelected.color
+    });
 })
