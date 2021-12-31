@@ -81,8 +81,6 @@ buttonStart.addEventListener("click", () => {
         valueQuantityAsk = 10;
     }
 
-    console.log(itemSelected);
-
     applyItemSelected({
         text: itemSelected.original,
         color: itemSelected.color

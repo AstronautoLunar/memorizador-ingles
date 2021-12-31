@@ -164,6 +164,8 @@ body {
     align-items: center;
 
     display: none;
+
+    position: relative;
 }
 
 #words-verify {
@@ -286,6 +288,18 @@ body {
     border-radius: 10px;
 
     font-size: 50px;
+}
+
+#button-out {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+
+    transition: transform 500ms;
+}
+
+#button-out:hover {
+    transform: scale(1.2);
 }
 
 .hit-word {
