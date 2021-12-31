@@ -10,3 +10,6 @@ const nextButton = window.document.getElementById("next");
 const inputAnswer = window.document.getElementById("answer");
 const wordResponse = window.document.getElementById("word-response");
 const showWordButton = window.document.getElementById("show-word");
+const buttonOut = window.document.getElementById("button-out");
+
+console.log(buttonOut);

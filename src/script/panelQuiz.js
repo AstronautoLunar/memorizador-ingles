@@ -66,18 +66,19 @@ nextButton.addEventListener("click", ({ target }) => {
 
     if(isCountQuantity) {
         changeVisibleElement({
+            element: panelQuiz,
+            classElement: "hidden-element",
+            display: "none",
+            time: HALFASECONDSINMILISECONDS
+        });
+
+        changeVisibleElement({
             element: panelChooseItems,
             classElement: "show-element",
             display: "flex",
             time: HALFASECONDSINMILISECONDS
         });
     
-        changeVisibleElement({
-            element: panelQuiz,
-            classElement: "hidden-element",
-            display: "none",
-            time: HALFASECONDSINMILISECONDS
-        });
 
         count = 0;
 
@@ -105,4 +106,20 @@ showWordButton.addEventListener("click", ({ target }) => {
 
         target.dataset.mode = "hidden"
     }
+});
+
+buttonOut.addEventListener("click", () => {
+    changeVisibleElement({
+        element: panelQuiz,
+        classElement: "hidden-element",
+        display: "none",
+        time: HALFASECONDSINMILISECONDS
+    });
+    
+    changeVisibleElement({
+        element: panelChooseItems,
+        classElement: "show-element",
+        display: "flex",
+        time: HALFASECONDSINMILISECONDS
+    });
 });
