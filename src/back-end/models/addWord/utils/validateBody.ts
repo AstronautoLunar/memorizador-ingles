@@ -1,19 +1,24 @@
 import { Request } from "express";
+import { RequestBodyAddWord } from "../types";
 
 function validateBody(request: Request): boolean {
-    let isPassedValidate = true;
+    const {
+        US,
+        BR,
+        date
+    }: RequestBodyAddWord = request.body;
 
-    const values = Object.values(request.body);
+    const isUSString = typeof US === "string";
+    const isBRString = typeof BR === "string";
+    const isDateString = typeof date === "string";
+    const isPassed = 
+        isUSString 
+        && 
+        isBRString 
+        && 
+        isDateString;
 
-    const typeValuesArray = values.map(value => typeof value === "string");
-
-    for(let typeValue of typeValuesArray) {
-        if(!typeValue) {
-            isPassedValidate = false;
-        }
-    }
-
-    return isPassedValidate;
+    return isPassed;
 }
 
 export default validateBody;
