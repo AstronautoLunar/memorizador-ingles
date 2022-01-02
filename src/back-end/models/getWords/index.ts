@@ -2,11 +2,13 @@ import {
     Request, 
     Response 
 } from "express";
-import data from "../../data/index.json";
+import data from "../../../data/index.json";
 
-export const getWords = (
+const getWords = (
     request: Request, 
     response: Response
 ): void => {
     response.json(JSON.stringify(data));
 }
+
+export default getWords;
