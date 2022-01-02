@@ -1,13 +1,14 @@
 // panel-choose - Painel de escolha das palavras
-const url = "./data/data.json";
+const url = "http://localhost:4444/api/getWords";
 
 async function generateElementsOfItems({ 
     url,
     children 
 }) {
     const response = await fetch(url);
-    const data = await response.json();
-    
+    const dataJson = await response.json();
+    const data = JSON.parse(dataJson);
+
     data.words.forEach(({ 
         US,
         BR
