@@ -32,18 +32,13 @@ const addWord = (
             date
         });
 
-        fileSystem.writeFile(
+        fileSystem.writeFileSync(
             path.join(__dirname, "..", "..", "..", "data", "data.json"),
             JSON.stringify(newData),
-            "utf-8",
-            (err) => {
-                console.log(err);
-            }
+            "utf-8"
         )
 
-        // path.join("..", "..", "..", "data", "index.json")
-
-        response.send("test");
+        response.status(200).send("Salvo com sucesso");
     }
 
 }
