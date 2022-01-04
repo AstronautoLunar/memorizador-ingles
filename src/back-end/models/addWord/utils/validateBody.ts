@@ -5,18 +5,14 @@ function validateBody(request: Request): boolean {
     const {
         US,
         BR,
-        date
     }: RequestBodyAddWord = request.body;
 
     const isUSString = typeof US === "string";
     const isBRString = typeof BR === "string";
-    const isDateString = typeof date === "string";
     const isPassed = 
         isUSString 
         && 
-        isBRString 
-        && 
-        isDateString;
+        isBRString;
 
     return isPassed;
 }
