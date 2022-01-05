@@ -8,7 +8,8 @@ import {
 import { 
     validateBodyAddWord,
     createDate,
-    createID
+    createID,
+    checkDuplicateWords
 } from "../../../utils";
 import fileSystem from "fs";
 import path from "path";
@@ -28,22 +29,23 @@ const addWord = (
         response.status(400).send("Sua requisição não passou da validação");
     } else {
         const newData = data;
-        createDate();
 
-        newData.words.push({
-            id: createID(),
-            US,
-            BR,
-            date: createDate()
-        });
+        checkDuplicateWords(newData);
+
+        // newData.words.push({
+        //     id: createID(),
+        //     US,
+        //     BR,
+        //     date: createDate()
+        // });
         
         response.end();
 
-        fileSystem.writeFileSync(
-            path.join(__dirname, "..", "..", "..", "..", "data", "data.json"),
-            JSON.stringify(newData),
-            "utf-8"
-        )
+        // fileSystem.writeFileSync(
+        //     path.join(__dirname, "..", "..", "..", "..", "data", "data.json"),
+        //     JSON.stringify(newData),
+        //     "utf-8"
+        // )
     }
 
 }
