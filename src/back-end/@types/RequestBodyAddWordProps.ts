@@ -1,5 +1,6 @@
-export interface RequestBodyAddWordProps {
+interface RequestBodyAddWordProps {
     US: string;
     BR: string;
 }
 
+export default RequestBodyAddWordProps;

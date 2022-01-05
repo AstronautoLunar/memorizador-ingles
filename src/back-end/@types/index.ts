@@ -1,5 +1,7 @@
-import { RequestBodyAddWordProps } from "./RequestBodyAddWordProps";
+import RequestBodyAddWordProps from "./RequestBodyAddWordProps";
+import BodyModifyWordProps from "./bodyModifyWordProps";
 
 export {
-    RequestBodyAddWordProps
+    RequestBodyAddWordProps,
+    BodyModifyWordProps
 }
