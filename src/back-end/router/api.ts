@@ -13,6 +13,8 @@ router.get("/getWords", getWords);
 
 router.post("/addWord", bodyParser.json(), addWord);
 
-router.put("/modifyWord", bodyParser.json(),modifyWord);
+router.put("/modifyWord", bodyParser.json(), modifyWord);
+
+router.delete("/deleteWord", bodyParser.json(), deleteWord);
 
 export default router;

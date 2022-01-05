@@ -12,7 +12,7 @@ const deleteWord = (
     const isIdString = typeof id === "string";
 
     if(!isIdString) {
-        response.status(400).send("O tipo id não é válido, somente é aceito tipo texto");
+        response.status(400).send("O tipo id não é válido, somente é aceito do tipo texto");
     } else {
         response.send("text");
     }
