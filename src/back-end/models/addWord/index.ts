@@ -3,12 +3,13 @@ import {
     Response
 } from "express";
 import { 
-    RequestBodyAddWord 
-} from "./types";
+    RequestBodyAddWordProps 
+} from "../../@types";
 import { 
-    validateBody,
-    createDate
-} from "./utils";
+    validateBodyAddWord,
+    createDate,
+    createID
+} from "../../utils";
 import fileSystem from "fs";
 import path from "path";
 import { data } from "../../../data";
@@ -17,11 +18,11 @@ const addWord = (
     request: Request,
     response: Response
 ) => {
-    const isPassedRequest = validateBody(request);
+    const isPassedRequest = validateBodyAddWord(request);
     const { 
         US,
         BR
-    }: RequestBodyAddWord = request.body;
+    }: RequestBodyAddWordProps = request.body;
 
     if(!isPassedRequest) {
         response.status(400).send("Sua requisição não passou da validação");
@@ -30,6 +31,7 @@ const addWord = (
         createDate();
 
         newData.words.push({
+            id: createID(),
             US,
             BR,
             date: createDate()

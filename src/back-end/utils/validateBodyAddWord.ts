@@ -1,11 +1,11 @@
 import { Request } from "express";
-import { RequestBodyAddWord } from "../types";
+import { RequestBodyAddWordProps } from "../@types";
 
-function validateBody(request: Request): boolean {
+function validateBodyAddWord(request: Request): boolean {
     const {
         US,
         BR,
-    }: RequestBodyAddWord = request.body;
+    }: RequestBodyAddWordProps = request.body;
 
     const isUSString = typeof US === "string";
     const isBRString = typeof BR === "string";
@@ -17,4 +17,4 @@ function validateBody(request: Request): boolean {
     return isPassed;
 }
 
-export default validateBody;
+export default validateBodyAddWord;
