@@ -4,15 +4,15 @@ import {
 } from "express";
 import { 
     RequestBodyAddWordProps 
-} from "../../@types";
+} from "../../../@types";
 import { 
     validateBodyAddWord,
     createDate,
     createID
-} from "../../utils";
+} from "../../../utils";
 import fileSystem from "fs";
 import path from "path";
-import { data } from "../../../data";
+import { data } from "../../../../data";
 
 const addWord = (
     request: Request,
@@ -40,7 +40,7 @@ const addWord = (
         response.end();
 
         fileSystem.writeFileSync(
-            path.join(__dirname, "..", "..", "..", "data", "data.json"),
+            path.join(__dirname, "..", "..", "..", "..", "data", "data.json"),
             JSON.stringify(newData),
             "utf-8"
         )

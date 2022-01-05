@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { validateBodyModifyWord } from "../../utils";
-import { data } from "../../../data";
-import { BodyModifyWordProps } from "../../@types";
+import { validateBodyModifyWord } from "../../../utils";
+import { data } from "../../../../data";
+import { BodyModifyWordProps } from "../../../@types";
 import fileSystem from "fs";
 import path from "path";
 
@@ -34,7 +34,7 @@ const modifyWord = (
         response.end();
 
         fileSystem.writeFileSync(
-            path.join(__dirname, "..", "..", "..", "data", "data.json"),
+            path.join(__dirname, "..", "..", "..", "..", "data", "data.json"),
             JSON.stringify(newData),
             "utf-8"
         )

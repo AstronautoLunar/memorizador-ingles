@@ -2,7 +2,7 @@ import {
     Request, 
     Response 
 } from "express";
-import { data } from "../../../data";
+import { data } from "../../../../data";
 
 const getWords = (
     request: Request, 

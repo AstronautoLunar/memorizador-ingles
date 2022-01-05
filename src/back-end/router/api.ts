@@ -3,8 +3,9 @@ import bodyParser from "body-parser";
 import { 
     getWords,
     addWord,
-    modifyWord
-} from "../models";
+    modifyWord,
+    deleteWord
+} from "../models/words";
 
 const router = express.Router();
 
