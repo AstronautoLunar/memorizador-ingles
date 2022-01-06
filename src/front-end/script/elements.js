@@ -11,3 +11,4 @@ const inputAnswer = window.document.getElementById("answer");
 const wordResponse = window.document.getElementById("word-response");
 const showWordButton = window.document.getElementById("show-word");
 const buttonOut = window.document.getElementById("button-out");
+const listItemsNav = window.document.getElementById("list-items-nav");
