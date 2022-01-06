@@ -7,6 +7,7 @@ body {
     height: 100vh;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -299,6 +300,36 @@ body {
 }
 
 #button-out:hover {
+    transform: scale(1.2);
+}
+
+#nav {
+    margin-top: 20px;
+}
+
+#list-items-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    list-style-type: none;
+}
+
+.item-nav-panel {
+    margin-right: 10px;
+}
+
+.item-nav-panel:last-of-type {
+    margin-right: 0;
+}
+
+.icon-nav-panel {
+    width: 50px;
+
+    transition: transform 500ms;
+}
+
+.icon-nav-panel:hover {
     transform: scale(1.2);
 }
 
