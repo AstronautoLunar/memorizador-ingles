@@ -1,15 +1,25 @@
-import { 
-    DataProps, 
-    WordsProps 
+import {
+    CheckDuplicateWordsProps
 } from "../@types";
+import { data } from "../../data/index";
 
-function checkDuplicateWords(data: DataProps) {
-    for(let i = 0; i < data.words.length; i++) {
-        for(let f = 1; f < data.words.length; f++) {
-            console.log(data.words[i]);
-            console.log(data.words[f]);
+function checkDuplicateWords(newWord: CheckDuplicateWordsProps): boolean {
+    
+    for(let wordObject of data.words) {    
+        const isUSIncludeData = 
+            wordObject.US.toUpperCase() 
+            === 
+            newWord.US.toUpperCase();
+
+        console.log(wordObject.US.toUpperCase())
+        console.log(newWord.US.toUpperCase())
+
+        if(isUSIncludeData) {
+            return false;
         }
     }
+
+    return true;
 }
 
 export default checkDuplicateWords;

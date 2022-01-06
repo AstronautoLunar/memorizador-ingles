@@ -4,12 +4,14 @@ import BodyDeleteWordProps from "./BodyDeleteWordProps";
 import { 
     DataProps,
     WordsProps
-} from "./dataProps";
+} from "./DataProps";
+import CheckDuplicateWordsProps from "./CheckDuplicateWordsProps";
 
 export {
     RequestBodyAddWordProps,
     BodyModifyWordProps,
     BodyDeleteWordProps,
     DataProps,
-    WordsProps
+    WordsProps,
+    CheckDuplicateWordsProps
 }

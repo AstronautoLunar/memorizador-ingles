@@ -3,7 +3,8 @@ import {
     Response
 } from "express";
 import { 
-    RequestBodyAddWordProps 
+    CheckDuplicateWordsProps,
+    RequestBodyAddWordProps
 } from "../../../@types";
 import { 
     validateBodyAddWord,
@@ -27,27 +28,39 @@ const addWord = (
 
     if(!isPassedRequest) {
         response.status(400).send("Sua requisição não passou da validação");
-    } else {
-        const newData = data;
 
-        checkDuplicateWords(newData);
+        return;
+    } 
 
-        // newData.words.push({
-        //     id: createID(),
-        //     US,
-        //     BR,
-        //     date: createDate()
-        // });
-        
-        response.end();
+    const newWord: CheckDuplicateWordsProps = {
+        US, 
+        BR 
+    }
+    
+    const isPassedWord = checkDuplicateWords(newWord);
+    
+    if(!isPassedWord) {
+        response.status(400).send("Palavra já salva");
 
-        // fileSystem.writeFileSync(
-        //     path.join(__dirname, "..", "..", "..", "..", "data", "data.json"),
-        //     JSON.stringify(newData),
-        //     "utf-8"
-        // )
+        return;
     }
 
+    const newData = data;
+
+    newData.words.push({
+        id: createID(),
+        US,
+        BR,
+        date: createDate()
+    });
+    
+    response.end();
+
+    fileSystem.writeFileSync(
+        path.join(__dirname, "..", "..", "..", "..", "data", "data.json"),
+        JSON.stringify(newData),
+        "utf-8"
+    )
 }
 
 export default addWord;
