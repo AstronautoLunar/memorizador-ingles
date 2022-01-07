@@ -146,18 +146,6 @@ body {
     color: var(--eerie-black);
 }
 
-#panel-choose-items,
-#panel-quiz
-{
-    width: 100%;
-    height: 100%;
-
-    background-color: var(--eerie-black);
-    
-    border: 2px solid var(--space-cadet);
-    border-radius: 20px;
-}
-
 #panel-quiz {
     display: flex;
     flex-direction: column;
@@ -313,6 +301,25 @@ body {
     align-items: center;
 
     list-style-type: none;
+}
+
+#panel-add-word {
+    display: none;
+}
+
+.panel-section
+{
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--eerie-black);
+    
+    border: 2px solid var(--space-cadet);
+    border-radius: 20px;
+}
+
+.panel-section-hidden {
+    display: none;
 }
 
 .item-nav-panel {
