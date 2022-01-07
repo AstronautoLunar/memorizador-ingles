@@ -303,8 +303,17 @@ body {
     list-style-type: none;
 }
 
-#panel-add-word {
-    display: none;
+.button-action-panel {
+    width: 100%;
+
+    background-color: var(--blue-crayola);
+
+    border: none;
+    outline: none;
+
+    padding: 10px;
+
+    font-size: 25px;
 }
 
 .panel-section

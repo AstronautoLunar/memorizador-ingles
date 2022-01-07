@@ -16,6 +16,10 @@
             href="style/main.css"
             rel="stylesheet"
         />
+        <link
+            href="style/panelAddWord.css"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <main id="main">
@@ -23,6 +27,8 @@
                 <div 
                     id="panel-choose-items"
                     class="panel-section"
+
+                    style="display: none;"
                 >
                     <div id="panel-choose">
     
@@ -87,8 +93,38 @@
                 <div 
                     id="panel-add-word"
                     class="panel-section panel-section-hidden"
+                    style="display: flex;"
                 >
-
+                    <form id="form-add-word">
+                        <div class="inputs">
+                            <div class="field">
+                                <label>
+                                    Inglês
+                                </label>
+                                <input
+                                    id="input-word-english"
+                                    type="text"
+                                    placeholder="Digite uma palavra"
+                                />
+                            </div>
+                            <div class="field">
+                                <label>
+                                    Português
+                                </label>
+                                <input
+                                    id="input-word-portuguese"
+                                    type="text"
+                                    placeholder="Digite uma palavra"
+                                />
+                            </div>
+                        </div>
+                        <button 
+                            class="button-action-panel"
+                            type="button"
+                        >
+                            Salvar
+                        </button>
+                    </form>
                 </div>
                 <div 
                     id="panel-modify-word"

@@ -1,0 +1,65 @@
+#panel-add-word {
+    justify-content: center;
+    align-items: center;
+}
+
+#panel-add-word,
+#form-add-word
+{
+    flex-direction: column;
+}
+
+#form-add-word {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+.field > label {
+    text-align: center;
+
+    margin-right: 24px;
+}
+
+.field > label,
+.field > input
+{
+    color: var(--blue-crayola);
+    
+    font-size: 25px;
+}
+
+.field > input {
+    padding: 10px;
+
+    background-color: var(--eerie-black);
+
+    border: 2px solid var(--blue-crayola);
+
+    transition-property: background-color, color;
+    transition-duration: 200ms;
+}
+
+.field > input::placeholder {
+    color: var(--space-cadet);
+}
+
+.field > input:focus {
+    background-color: var(--blue-crayola);
+
+    color: var(--eerie-black);
+
+    outline: none;
+}
+
+#form-add-word > .button-action-panel {
+    margin-top: 24px;
+}
