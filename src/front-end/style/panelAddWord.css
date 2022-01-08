@@ -12,7 +12,7 @@
 #form-add-word {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .field {
@@ -62,4 +62,11 @@
 
 #form-add-word > .button-action-panel {
     margin-top: 24px;
+}
+
+#message-error-panel-word {
+    color: var(--bright-yellow-crayola);
+
+    font-size: 25px;
+    font-weight: bold;
 }

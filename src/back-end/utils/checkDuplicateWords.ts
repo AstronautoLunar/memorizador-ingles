@@ -11,9 +11,6 @@ function checkDuplicateWords(newWord: CheckDuplicateWordsProps): boolean {
             === 
             newWord.US.toUpperCase();
 
-        console.log(wordObject.US.toUpperCase())
-        console.log(newWord.US.toUpperCase())
-
         if(isUSIncludeData) {
             return false;
         }

@@ -10,7 +10,8 @@ import {
     validateBodyAddWord,
     createDate,
     createID,
-    checkDuplicateWords
+    checkDuplicateWords,
+    createTodayDate
 } from "../../../utils";
 import fileSystem from "fs";
 import path from "path";
@@ -58,6 +59,16 @@ const addWord = (
 
     fileSystem.writeFileSync(
         path.join(__dirname, "..", "..", "..", "..", "data", "data.json"),
+        JSON.stringify(newData),
+        "utf-8"
+    )
+
+    const currentDate = createTodayDate();
+
+    const fileNameBackup = `backup-${currentDate}.json`;
+
+    fileSystem.writeFileSync(
+        path.join(__dirname, "..", "..", "..", "..", "data", "backup", fileNameBackup),
         JSON.stringify(newData),
         "utf-8"
     )

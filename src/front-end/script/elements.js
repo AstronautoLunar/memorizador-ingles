@@ -23,3 +23,9 @@ const inputAnswer = window.document.getElementById("answer");
 const wordResponse = window.document.getElementById("word-response");
 const showWordButton = window.document.getElementById("show-word");
 const buttonOut = window.document.getElementById("button-out");
+
+// Panel Add Word
+const inputWordUS = window.document.getElementById("input-word-english");
+const inputWordBR = window.document.getElementById("input-word-portuguese");
+const buttonAddWord = window.document.getElementById("button-add-word");
+const messageErrorPanelWord = window.document.getElementById("message-error-panel-word");

@@ -161,3 +161,12 @@ generateElementsOfItems({
     url,
     children: panelChoose
 });
+
+function regenerateElementsOfItems() {
+    panelChoose.innerText = "";
+
+    generateElementsOfItems({
+        url,
+        children: panelChoose
+    });
+}
