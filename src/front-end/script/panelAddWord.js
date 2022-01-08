@@ -37,5 +37,5 @@ buttonAddWord.addEventListener("click", async () => {
         messageErrorPanelWord.innerText = "";
     }
 
-    regenerateElementsOfItems(); // File createElements.js
+    regenerateElementsOfItems(panelChoose); // File createElements.js
 });

@@ -34,7 +34,7 @@ async function generateElementsOfItems({
         )
     });
 
-    const item = window.document.querySelectorAll(".item");
+    const items = window.document.querySelectorAll(".item");
 
     function applyStyleHoverMode({
         mode,
@@ -80,7 +80,7 @@ async function generateElementsOfItems({
         }
     }
 
-    item.forEach(item => {
+    items.forEach(item => {
         const value = item.innerText;
         const data = item.dataset.translate;
         const color = item.dataset.color;
@@ -160,13 +160,13 @@ async function generateElementsOfItems({
 generateElementsOfItems({
     url,
     children: panelChoose
-});
+})
 
-function regenerateElementsOfItems() {
-    panelChoose.innerText = "";
+function regenerateElementsOfItems(children) {
+    children.innerText = "";
 
     generateElementsOfItems({
         url,
-        children: panelChoose
+        children
     });
 }

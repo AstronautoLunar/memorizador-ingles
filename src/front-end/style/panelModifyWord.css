@@ -1,0 +1,25 @@
+#panel-modify-word
+{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#list-items-for-modify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: 100%;
+}
+
+#area-modify {
+    width: 100%;
+    height: 0;
+    
+    overflow: hidden;
+
+    background-color: var(--space-cadet);
+}

@@ -29,3 +29,7 @@ const inputWordUS = window.document.getElementById("input-word-english");
 const inputWordBR = window.document.getElementById("input-word-portuguese");
 const buttonAddWord = window.document.getElementById("button-add-word");
 const messageErrorPanelWord = window.document.getElementById("message-error-panel-word");
+
+// Panel Modify Word
+const listItemsForModify = window.document.getElementById("list-items-for-modify");
+const areaModify = window.document.getElementById("area-modify");

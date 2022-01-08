@@ -20,6 +20,10 @@
             href="style/panelAddWord.css"
             rel="stylesheet"
         />
+        <link
+            href="style/panelModifyWord.css"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <main id="main">
@@ -93,7 +97,6 @@
                 <div 
                     id="panel-add-word"
                     class="panel-section panel-section-hidden"
-                    style="display: flex;"
                 >
                     <form id="form-add-word">
                         <div class="inputs">
@@ -133,8 +136,14 @@
                 <div 
                     id="panel-modify-word"
                     class="panel-section panel-section-hidden"
+                    style="display: flex;"
                 >
+                    <ul id="list-items-for-modify">
 
+                    </ul>
+                    <div id="area-modify">
+
+                    </div>
                 </div>
                 <div 
                     id="panel-delete-word"
@@ -158,5 +167,6 @@
         <script src="./script/panelQuiz.js"></script>
         <script src="./script/nav.js"></script>
         <script src="./script/panelAddWord.js"></script>
+        <script src="./script/panelModifyWord.js"></script>
     </body>
 </html>
