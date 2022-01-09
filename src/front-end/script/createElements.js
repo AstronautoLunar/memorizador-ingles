@@ -1,11 +1,7 @@
 // panel-choose - Painel de escolha das palavras
-const url = "http://localhost:4444/api/getWords";
 
-async function generateElementsOfItems({ 
-    url,
-    children 
-}) {
-    const response = await fetch(url);
+async function generateElementsOfItems(children) {
+    const response = await fetch("http://localhost:4444/api/getWords");
     const dataJson = await response.json();
     const data = JSON.parse(dataJson);
 
@@ -157,16 +153,10 @@ async function generateElementsOfItems({
     });
 }
 
-generateElementsOfItems({
-    url,
-    children: panelChoose
-})
+generateElementsOfItems(panelChoose)
 
 function regenerateElementsOfItems(children) {
     children.innerText = "";
 
-    generateElementsOfItems({
-        url,
-        children
-    });
+    generateElementsOfItems(children);
 }
