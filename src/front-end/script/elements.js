@@ -33,3 +33,4 @@ const messageErrorPanelWord = window.document.getElementById("message-error-pane
 // Panel Modify Word
 const listItemsForModify = window.document.getElementById("list-items-for-modify");
 const areaModify = window.document.getElementById("area-modify");
+const buttonIconOut = window.document.getElementById("icon-out");

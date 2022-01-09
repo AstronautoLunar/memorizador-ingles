@@ -15,7 +15,7 @@
     align-items: center;
 }
 
-.field {
+.field-add-word {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,21 +23,21 @@
     margin-bottom: 10px;
 }
 
-.field > label {
+.field-add-word > label {
     text-align: center;
 
     margin-right: 24px;
 }
 
-.field > label,
-.field > input
+.field-add-word > label,
+.field-add-word > input
 {
     color: var(--blue-crayola);
     
     font-size: 25px;
 }
 
-.field > input {
+.field-add-word > input {
     padding: 10px;
 
     background-color: var(--eerie-black);
@@ -48,11 +48,11 @@
     transition-duration: 200ms;
 }
 
-.field > input::placeholder {
+.field-add-word > input::placeholder {
     color: var(--space-cadet);
 }
 
-.field > input:focus {
+.field-add-word > input:focus {
     background-color: var(--blue-crayola);
 
     color: var(--eerie-black);

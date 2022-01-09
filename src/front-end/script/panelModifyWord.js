@@ -16,8 +16,8 @@ async function generateItemsOfModifyWord(url) {
                     data-translate="${BR}"
                     data-original="${US}"
                     style="
-                        color: ${alpha};
-                        border-color: ${alpha};
+                        color: ${original};
+                        border-color: ${original};
                     "
                     data-color="${original}"
                     data-selected="false"
@@ -28,21 +28,17 @@ async function generateItemsOfModifyWord(url) {
         )
     });
 
-    // function applyStyleSelectedItem(target) {
-
-    // }
-
     const items = window.document.querySelectorAll(".item-modify-word");
 
-    console.log(items);
-
-    // for(let item of items) {
-    //     item.addEventListener("click", ({ target }) => {
-            
-    //     })
-    // }
-
-    // Criar uma funcionalidade que retorne todos os elementos irmãos do item selecionado
+    for(let item of items) {
+        item.addEventListener("click", ({ target }) => {
+            areaModify.style.height = "200px";
+        });
+    }
 }
 
-generateItemsOfModifyWord(url)
+generateItemsOfModifyWord(url);
+
+buttonIconOut.addEventListener("click", () => {
+    areaModify.style.height = "0";
+});
