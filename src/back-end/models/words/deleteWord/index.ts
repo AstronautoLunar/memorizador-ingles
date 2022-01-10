@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
-import { BodyDeleteWordProps } from "../../../@types";
-import { data } from "../../../../data";
 import fileSystem from "fs";
 import path from "path";
+
+import { BodyDeleteWordProps } from "../../../@types";
+import { data } from "../../../../data";
+import { createTodayDate } from "../../../utils";
 
 const deleteWord = (
     request: Request, 
@@ -30,6 +32,16 @@ const deleteWord = (
             JSON.stringify(newData),
             "utf-8"
         )
+
+        const currentDate = createTodayDate();
+
+        const fileNameBackup = `backup-${currentDate}.json`;
+
+        fileSystem.writeFileSync(
+            path.join(__dirname, "..", "..", "..", "..", "data", "backup", fileNameBackup),
+            JSON.stringify(newData),
+            "utf-8"
+        );
     }
 }
 

@@ -1,9 +1,13 @@
 import { Request, Response } from "express";
-import { validateBodyModifyWord } from "../../../utils";
-import { data } from "../../../../data";
-import { BodyModifyWordProps } from "../../../@types";
 import fileSystem from "fs";
 import path from "path";
+
+import { 
+    validateBodyModifyWord,
+    createTodayDate
+} from "../../../utils";
+import { data } from "../../../../data";
+import { BodyModifyWordProps } from "../../../@types";
 
 const modifyWord = (
     request: Request, 
@@ -38,6 +42,16 @@ const modifyWord = (
             JSON.stringify(newData),
             "utf-8"
         )
+
+        const currentDate = createTodayDate();
+
+        const fileNameBackup = `backup-${currentDate}.json`;
+
+        fileSystem.writeFileSync(
+            path.join(__dirname, "..", "..", "..", "..", "data", "backup", fileNameBackup),
+            JSON.stringify(newData),
+            "utf-8"
+        );
     }
 
 }
