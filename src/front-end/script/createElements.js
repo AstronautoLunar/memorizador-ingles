@@ -1,13 +1,10 @@
 // panel-choose - Painel de escolha das palavras
-const url = "./data/data.json";
 
-async function generateElementsOfItems({ 
-    url,
-    children 
-}) {
-    const response = await fetch(url);
-    const data = await response.json();
-    
+async function generateElementsOfItems(children) {
+    const response = await fetch("http://localhost:4444/api/getWords");
+    const dataJson = await response.json();
+    const data = JSON.parse(dataJson);
+
     data.words.forEach(({ 
         US,
         BR
@@ -33,7 +30,7 @@ async function generateElementsOfItems({
         )
     });
 
-    const item = window.document.querySelectorAll(".item");
+    const items = window.document.querySelectorAll(".item");
 
     function applyStyleHoverMode({
         mode,
@@ -79,7 +76,7 @@ async function generateElementsOfItems({
         }
     }
 
-    item.forEach(item => {
+    items.forEach(item => {
         const value = item.innerText;
         const data = item.dataset.translate;
         const color = item.dataset.color;
@@ -156,7 +153,10 @@ async function generateElementsOfItems({
     });
 }
 
-generateElementsOfItems({
-    url,
-    children: panelChoose
-});
+generateElementsOfItems(panelChoose)
+
+function regenerateElementsOfItems(children) {
+    children.innerText = "";
+
+    generateElementsOfItems(children);
+}

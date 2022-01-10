@@ -1,0 +1,107 @@
+#panel-modify-word
+{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#list-items-for-modify,
+#area-modify,
+#area-inputs-modify-word,
+#details-word
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#list-items-for-modify {
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: 100%;
+}
+
+#area-modify {
+    flex-direction: column;
+
+    width: 100%;
+    height: 0;
+    
+    overflow: hidden;
+
+    background-color: var(--space-cadet);
+
+    transition: height 250ms;
+
+    position: relative;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#icon-out {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    width: 15px;
+
+    transition: transform 500ms;
+
+    cursor: pointer;
+}
+
+#icon-out:hover {
+    transform: scale(1.2);
+}
+
+#date-modify-word,
+#text-of-identifier-word
+{
+    color: var(--dark-comflower-blue);
+}
+
+#details-word {
+    margin-bottom: 16px;
+}
+
+#identifier-word {
+    color: var(--blue-crayola);
+}
+
+#date-modify-word {
+    margin-left: 16px;
+}
+
+.input-modify-word {
+    margin-right: 20px;
+
+    background-color: var(--eerie-black);
+
+    color: var(--blue-crayola);
+}
+
+.input-modify-word::placeholder {
+    color: var(--space-cadet);
+}
+
+.input-modify-word,
+#button-modify-word
+{
+    font-size: 25px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+#button-modify-word {
+    background-color: var(--blue-crayola);
+
+    color: var(--eerie-black);
+}

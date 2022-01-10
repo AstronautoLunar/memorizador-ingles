@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Meta dados-->
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        
+        <title>Memorizador inglês</title>
+
+        <link
+            href="style/globals.css"
+            rel="stylesheet"
+        />
+        <link
+            href="style/main.css"
+            rel="stylesheet"
+        />
+        <link
+            href="style/panelAddWord.css"
+            rel="stylesheet"
+        />
+        <link
+            href="style/panelModifyWord.css"
+            rel="stylesheet"
+        />
+        <link
+            href="style/panelDeleteWord.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <main id="main">
+            <div id="container">
+                <div 
+                    id="panel-choose-items"
+                    class="panel-section"
+                >
+                    <div id="panel-choose">
+    
+                    </div>
+                    <div id="panel-start">
+                        <input
+                            id="quantity-ask"
+                            type="text"
+                            placeholder="Quantidade"
+                        />
+                        <span 
+                            id="error"
+                            class="on"
+                        >
+                            A entrada somente aceita números
+                        </span>
+                        <button id="button-start">
+                            Começar
+                        </button>
+                    </div>
+                </div>
+                <div 
+                    id="panel-quiz"
+                    class="panel-section panel-section-hidden"
+                >
+                    <img
+                        id="button-out"
+                        src="assets/icons/icon-arrow-out.svg"
+                        alt="button out quiz panel"
+                    />
+
+                    <div id="words-verify">
+                        <span id="word-selected">
+                        </span>
+    
+                        <span id="word-response">
+                        </span>
+                    </div>
+
+                    <div id="area-input">
+                        <input
+                            id="answer"
+                            type="text"
+                            placeholder="Resposta"
+                        />
+                        <div id="buttons-line">
+                            <button id="verify">
+                                Verificar
+                            </button>
+                            <button id="next">
+                                Próximo
+                            </button>
+                        </div>
+                        <button 
+                            id="show-word"
+                            data-mode="hidden"
+                        >
+                            Mostrar
+                        </button>
+                    </div>
+                </div>
+                <div 
+                    id="panel-add-word"
+                    class="panel-section panel-section-hidden"
+                >
+                    <form id="form-add-word">
+                        <div class="inputs">
+                            <div class="field-add-word">
+                                <label>
+                                    Inglês
+                                </label>
+                                <input
+                                    id="input-word-english"
+                                    type="text"
+                                    placeholder="Digite uma palavra"
+                                />
+                            </div>
+                            <div class="field-add-word">
+                                <label>
+                                    Português
+                                </label>
+                                <input
+                                    id="input-word-portuguese"
+                                    type="text"
+                                    placeholder="Digite uma palavra"
+                                />
+                            </div>
+                        </div>
+                        <span id="message-error-panel-word">
+
+                        </span>
+                        <button
+                            id="button-add-word"
+                            class="button-action-panel"
+                            type="button"
+                        >
+                            Salvar
+                        </button>
+                    </form>
+                </div>
+                <div 
+                    id="panel-modify-word"
+                    class="panel-section panel-section-hidden"
+                >
+                    <ul id="list-items-for-modify">
+
+                    </ul>
+                    <div id="area-modify">
+                        <img
+                            id="icon-out"
+                            src="assets/icons/icon-out.svg"
+                            alt="icon out"
+                        />
+                        <div id="details-word">
+                            <span id="text-of-identifier-word">
+                                Identificador:
+                                <span id="identifier-word"></span>
+                            </span>
+                            <span id="date-modify-word">
+
+                            </span>
+                        </div>
+                        <div id="area-inputs-modify-word">
+                            <input
+                                id="input-portuguese-modify-word"
+                                class="input-modify-word"
+                                type="text"
+                                placeholder="Português"
+                            />
+                            <input
+                                id="input-english-modify-word"
+                                class="input-modify-word"
+                                type="text"
+                                placeholder="Inglês"
+                            />
+                            <button id="button-modify-word">
+                                Modificar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div 
+                    id="panel-delete-word"
+                    class="panel-section panel-section-hidden"
+                >
+
+                </div>
+            </div>
+            <nav id="nav">
+                <ul id="list-items-nav">
+                    
+                </ul>
+            </nav>
+        </main>
+
+        <script src="./script/elements.js"></script>
+        <script src="./script/randomColor.js"></script>
+        <script src="./script/createElements.js"></script>
+        <script src="./script/verifyInputs.js"></script>
+        <script src="./script/start.js"></script>
+        <script src="./script/panelQuiz.js"></script>
+        <script src="./script/nav.js"></script>
+        <script src="./script/panelAddWord.js"></script>
+        <script src="./script/panelModifyWord.js"></script>
+        <script src="./script/panelDeleteWord.js"></script>
+    </body>
+</html>

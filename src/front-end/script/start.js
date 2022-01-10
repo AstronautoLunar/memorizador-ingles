@@ -16,6 +16,7 @@ function changeVisibleElement({
 }) {
     element.classList.add(classElement);
     setTimeout(() => {
+        element.classList.remove(classElement);
         element.style.display = display;
     }, time);
 }
