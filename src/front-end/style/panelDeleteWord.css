@@ -1,0 +1,50 @@
+#panel-delete-word {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.area-item-delete-word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px;
+
+    height: 75px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 20px;
+}
+
+.item-delete-word {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    margin: 0;
+
+    border-width: 0;
+    border-style: none;
+}
+
+.button-delete-word {
+    flex: 1;
+
+    background-color: var(--paradise-pink);
+
+    border: none;
+    outline: none;
+
+    padding: 10px;
+
+    height: 100%;
+
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.icon-delete-word {
+    width: 25px;
+}

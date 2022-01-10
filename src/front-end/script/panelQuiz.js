@@ -22,14 +22,12 @@ verifyButton.addEventListener("click", ({ target }) => {
 
     const answerValue = inputAnswer.value;
     const translateValue = itemSelected.translate;
-    const valueWordSelect = wordSelected.innerText;
-    
+
     if(answerValue) {
         if(answerValue === translateValue) {
             wordResponse.classList.add("hit-word");
             wordResponse.classList.remove("miss-word");
             
-            wordSelected.innerText = valueWordSelect + ` - ${translateValue}`;
         } else {
             wordResponse.classList.add("miss-word");
             wordResponse.classList.remove("hit-word");
@@ -41,6 +39,13 @@ verifyButton.addEventListener("click", ({ target }) => {
 
 nextButton.addEventListener("click", ({ target }) => {
     applyAnimationPress(target);
+
+    changeVisibleElement({
+        element: wordResponse,
+        classElement: "hidden-element",
+        display: "none",
+        time: HALFASECONDSINMILISECONDS
+    });
 
     for(let i = 0; i <= 5; i++) {
         if(oldIndex === indexRandomItem) {
