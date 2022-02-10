@@ -40,6 +40,9 @@ verifyButton.addEventListener("click", ({ target }) => {
 nextButton.addEventListener("click", ({ target }) => {
     applyAnimationPress(target);
 
+    inputAnswer.value = "";
+    inputAnswer.focus();
+
     changeVisibleElement({
         element: wordResponse,
         classElement: "hidden-element",
@@ -47,11 +50,8 @@ nextButton.addEventListener("click", ({ target }) => {
         time: HALFASECONDSINMILISECONDS
     });
 
-    for(let i = 0; i <= 5; i++) {
-        if(oldIndex === indexRandomItem) {
-            indexRandomItem = randomNumber(arrayItemsChoose.length);
-            break;
-        }
+    while(oldIndex === indexRandomItem) {
+        indexRandomItem = randomNumber(arrayItemsChoose.length);
     }
 
     itemSelected = arrayItemsChoose[indexRandomItem];
@@ -104,10 +104,12 @@ showWordButton.addEventListener("click", ({ target }) => {
 
     if(mode === "hidden") {
         wordSelected.innerText = itemSelected.translate;
-
+        showWordButton.innerText = "Esconder";
+        
         target.dataset.mode = "show"
     } else {
         wordSelected.innerText = itemSelected.original;
+        showWordButton.innerText = "Mostrar";
 
         target.dataset.mode = "hidden"
     }

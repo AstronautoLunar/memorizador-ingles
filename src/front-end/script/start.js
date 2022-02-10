@@ -1,4 +1,3 @@
-let arrayItemsChoose = [];
 const HALFASECONDSINMILISECONDS = 500;
 let indexRandomItem = 0;
 let itemSelected = {};
@@ -34,56 +33,40 @@ quantityAsk.addEventListener("change", ({ target }) => {
 });
 
 buttonStart.addEventListener("click", () => {
-    const items = window.document.querySelectorAll(".item");
+    if(arrayItemsChoose.length <= 1) {
+        messageError.innerText = "Selecione mais de uma palavra para começar";
+        
+        applyModeError(true);
+    } else {
+        messageError.innerText = "";
+
+        applyModeError(false);
+
+        changeVisibleElement({
+            element: panelChooseItems,
+            classElement: "hidden-element",
+            display: "none",
+            time: HALFASECONDSINMILISECONDS
+        });
     
-    for(let item of items) {
-        let { 
-            translate, 
-            original, 
-            selected,
-            color
-        } = item.dataset;
+        changeVisibleElement({
+            element: panelQuiz,
+            classElement: "show-element",
+            display: "flex",
+            time: HALFASECONDSINMILISECONDS
+        });
     
-        if(selected === "true") {
-            selected = true;
-        } else {
-            selected = false;
+        indexRandomItem = randomNumber(arrayItemsChoose.length);
+    
+        itemSelected = arrayItemsChoose[indexRandomItem];
+    
+        if(!quantityAsk.value) {
+            valueQuantityAsk = 10;
         }
     
-        if(selected) {
-            arrayItemsChoose.push({
-                translate,
-                original,
-                selected,
-                color
-            });
-        }
+        applyItemSelected({
+            text: itemSelected.original,
+            color: itemSelected.color
+        });
     }
-
-    changeVisibleElement({
-        element: panelChooseItems,
-        classElement: "hidden-element",
-        display: "none",
-        time: HALFASECONDSINMILISECONDS
-    });
-
-    changeVisibleElement({
-        element: panelQuiz,
-        classElement: "show-element",
-        display: "flex",
-        time: HALFASECONDSINMILISECONDS
-    });
-
-    indexRandomItem = randomNumber(arrayItemsChoose.length);
-
-    itemSelected = arrayItemsChoose[indexRandomItem];
-
-    if(!quantityAsk.value) {
-        valueQuantityAsk = 10;
-    }
-
-    applyItemSelected({
-        text: itemSelected.original,
-        color: itemSelected.color
-    });
 })

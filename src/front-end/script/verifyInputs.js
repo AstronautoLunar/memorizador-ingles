@@ -28,16 +28,6 @@ const lettersAlphabet = [
     "ç"
 ]
 
-function applyModeError(error) {
-    if(error) {
-        messageError.style.height = "30px";
-        buttonStart.setAttribute("disabled", "");
-    } else {
-        messageError.style.height = "0";
-        buttonStart.removeAttribute("disabled");
-    }
-}
-
 quantityAsk.addEventListener("input", ({ target }) => {
     const valueQuantityInput = target.value;
     const lettersInput = valueQuantityInput.split("");

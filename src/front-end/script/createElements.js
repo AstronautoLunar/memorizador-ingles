@@ -1,4 +1,5 @@
 // panel-choose - Painel de escolha das palavras
+let arrayItemsChoose = [];
 
 async function generateElementsOfItems(children) {
     const response = await fetch("http://localhost:4444/api/getWords");
@@ -7,7 +8,8 @@ async function generateElementsOfItems(children) {
 
     data.words.forEach(({ 
         US,
-        BR
+        BR,
+        id
     }) => {
         const { original, alpha } = randomColorRgb();
 
@@ -15,6 +17,7 @@ async function generateElementsOfItems(children) {
             children.innerHTML += `
                 <span 
                     class="item"
+                    data-id="${id}"
                     data-translate="${BR}"
                     data-original="${US}"
                     style="
@@ -114,7 +117,11 @@ async function generateElementsOfItems(children) {
 
         item.addEventListener("click", ({ target }) => {
             const { 
-                selected
+                translate, 
+                original, 
+                selected,
+                color,
+                id
             } = target.dataset;
             
             if(selected === "true") {
@@ -127,6 +134,10 @@ async function generateElementsOfItems(children) {
                     element: target,
                     color
                 });
+                
+                let oldArrayItemChoose = arrayItemsChoose;
+
+                arrayItemsChoose = oldArrayItemChoose.filter(itemChoose => itemChoose.id !== id);
             } else {
                 target.dataset.selected = "true";
                 
@@ -137,6 +148,18 @@ async function generateElementsOfItems(children) {
                     element: target,
                     color
                 });
+
+                arrayItemsChoose.push({
+                    id,
+                    translate,
+                    original,
+                    selected,
+                    color
+                });
+            }
+
+            if(arrayItemsChoose.length >= 1) {
+                applyModeError(false);
             }
         });
     });
