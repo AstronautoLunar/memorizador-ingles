@@ -6,7 +6,8 @@ async function generateElementsOfItems(children) {
     const data = JSON.parse(dataJson);
 
     data.words.forEach(({ 
-        US
+        US,
+        BR
     }) => {
         const { original, alpha } = randomColorRgb();
 
@@ -14,6 +15,8 @@ async function generateElementsOfItems(children) {
             children.innerHTML += `
                 <span 
                     class="item"
+                    data-translate="${BR}"
+                    data-original="${US}"
                     style="
                         color: ${alpha};
                         border-color: ${alpha};
