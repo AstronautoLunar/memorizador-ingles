@@ -33,10 +33,14 @@ body {
 
 #panel-choose {
     display: flex;
+    justify-content: flex-start;
     align-items: flex-start;
+    align-content: flex-start;
     flex-wrap: wrap;
 
     padding: 20px;
+
+    overflow-y: auto;
 }
 
 #panel-start {
