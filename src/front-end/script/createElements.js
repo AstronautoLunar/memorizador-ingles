@@ -15,8 +15,6 @@ async function generateElementsOfItems(children) {
             children.innerHTML += `
                 <span 
                     class="item"
-                    data-translate="${BR}"
-                    data-original="${US}"
                     style="
                         color: ${alpha};
                         border-color: ${alpha};
@@ -35,11 +33,9 @@ async function generateElementsOfItems(children) {
     function applyStyleHoverMode({
         mode,
         element,
-        color,
-        text
+        color
     }) {
         const modeGhostButton = () => {
-            element.innerText = text;
             element.style.borderColor = color;
             element.style.color = color;
             element.style.backgroundColor = "";
@@ -47,7 +43,6 @@ async function generateElementsOfItems(children) {
         }
 
         const modeDefaultButton = () => {
-            element.innerText = text;
             element.style.borderColor = color;
             element.style.color = "";
             element.style.backgroundColor = color;
@@ -77,16 +72,13 @@ async function generateElementsOfItems(children) {
     }
 
     items.forEach(item => {
-        const value = item.innerText;
-        const data = item.dataset.translate;
         const color = item.dataset.color;
 
         const eventMouseEnter = ({ target }) => {
             applyStyleHoverMode({
                 mode: "hover",
                 element: target,
-                color,
-                text: data
+                color
             });
         }
 
@@ -94,36 +86,33 @@ async function generateElementsOfItems(children) {
             applyStyleHoverMode({
                 mode: "normal",
                 element: target,
-                color,
-                text: value
+                color
             });
         }
 
-        item.addEventListener("mouseenter", eventMouseEnter);
+        item.addEventListener("mouseenter", eventMouseEnter, true);
         
-        item.addEventListener("mouseleave", eventMouseLeave);
+        item.addEventListener("mouseleave", eventMouseLeave, true);
 
         function applyEvent(mode) {
             switch(mode) {
                 default:
                 case "on":
-                    item.addEventListener("mouseenter", eventMouseEnter);
+                    item.addEventListener("mouseenter", eventMouseEnter, true);
         
-                    item.addEventListener("mouseleave", eventMouseLeave);
+                    item.addEventListener("mouseleave", eventMouseLeave), true;
                     break;
                 case "off":
-                    item.removeEventListener("mouseenter", eventMouseEnter);
+                    item.removeEventListener("mouseenter", eventMouseEnter, true);
         
-                    item.removeEventListener("mouseleave", eventMouseLeave);
+                    item.removeEventListener("mouseleave", eventMouseLeave, true);
                     break;
             }
         } 
 
         item.addEventListener("click", ({ target }) => {
             const { 
-                selected,
-                original,
-                translate
+                selected
             } = target.dataset;
             
             if(selected === "true") {
@@ -134,8 +123,7 @@ async function generateElementsOfItems(children) {
                 applyStyleHoverMode({
                     mode: "no-selected",
                     element: target,
-                    color,
-                    text: translate
+                    color
                 });
             } else {
                 target.dataset.selected = "true";
@@ -145,8 +133,7 @@ async function generateElementsOfItems(children) {
                 applyStyleHoverMode({
                     mode: "selected",
                     element: target,
-                    color,
-                    text: original
+                    color
                 });
             }
         });
