@@ -14,13 +14,25 @@ async function sendAddWord(data) {
         "Content-Type": "application/json"
     });
     
-    const status = await fetch("http://localhost:4444/api/addWord", {
+    const responseFetch = await fetch("http://localhost:4444/api/addWord", {
         headers,
         method: "POST",
         body: JSON.stringify(data)
     });
 
-    return await status.text()
+    return {
+        status: responseFetch.status,
+        reason: await responseFetch.text()
+    };
+}
+
+function restoreStyleButtonAddWord() {
+    const ONESECONDS = 1000;
+    
+    setTimeout(() => {
+        buttonAddWord.innerText = "Salvar";
+        buttonAddWord.style.backgroundColor = "";
+    }, ONESECONDS);
 }
 
 buttonAddWord.addEventListener("click", async () => {
@@ -29,13 +41,19 @@ buttonAddWord.addEventListener("click", async () => {
         BR: valueInputWordBR
     };
 
-    const responseText = await sendAddWord(data);
+    const { status, reason } = await sendAddWord(data);
 
-    if(responseText) {
-        messageErrorPanelWord.innerText = responseText;
+    if(status === 200) {
+        buttonAddWord.innerText = "Salvo com sucesso";
+        buttonAddWord.style.backgroundColor = "var(--medium-spring-green)";
+
+        restoreStyleButtonAddWord();
     } else {
-        messageErrorPanelWord.innerText = "";
-    }
+        buttonAddWord.innerText = reason;
+        buttonAddWord.style.backgroundColor = "var(--bright-yellow-crayola)";
 
+        restoreStyleButtonAddWord();
+    }
+    
     regenerateElementsOfItems(panelChoose); // File createElements.js
 });

@@ -168,7 +168,13 @@ async function generateElementsOfItems(children) {
 generateElementsOfItems(panelChoose)
 
 function regenerateElementsOfItems(children) {
-    children.innerText = "";
+    const TWOSECONDS = 2000;
+    
+    let timer;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        children.innerText = "";
 
-    generateElementsOfItems(children);
+        generateElementsOfItems(children);
+    }, TWOSECONDS);
 }

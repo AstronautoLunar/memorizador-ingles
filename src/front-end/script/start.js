@@ -55,6 +55,13 @@ buttonStart.addEventListener("click", () => {
             display: "flex",
             time: HALFASECONDSINMILISECONDS
         });
+
+        changeVisibleElement({
+            element: listItemsNav,
+            classElement: "hidden-element",
+            display: "none",
+            time: HALFASECONDSINMILISECONDS
+        });
     
         indexRandomItem = randomNumber(arrayItemsChoose.length);
     

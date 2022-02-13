@@ -129,4 +129,11 @@ buttonOut.addEventListener("click", () => {
         display: "flex",
         time: HALFASECONDSINMILISECONDS
     });
+
+    changeVisibleElement({
+        element: listItemsNav,
+        classElement: "show-element",
+        display: "flex",
+        time: HALFASECONDSINMILISECONDS
+    });
 });
