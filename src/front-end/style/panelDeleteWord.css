@@ -3,6 +3,8 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
+    overflow-y: auto;
 }
 
 .area-item-delete-word {
@@ -27,6 +29,8 @@
 
     border-width: 0;
     border-style: none;
+
+    cursor: default;
 }
 
 .button-delete-word {
@@ -43,6 +47,10 @@
 
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+
+    cursor: pointer;
+
+    transition: background-color 500ms;
 }
 
 .icon-delete-word {

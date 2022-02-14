@@ -83,7 +83,6 @@ nextButton.addEventListener("click", ({ target }) => {
             display: "flex",
             time: HALFASECONDSINMILISECONDS
         });
-    
 
         count = 0;
 

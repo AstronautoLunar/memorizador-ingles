@@ -1,3 +1,5 @@
+let itemsSelectedForDelete = [ ];
+
 async function generateItemsOfDeleteWord() {
     async function renderItems() {
         const response = await fetch("http://localhost:4444/api/getWords");
@@ -37,6 +39,7 @@ async function generateItemsOfDeleteWord() {
                         <button 
                             class="button-delete-word"
                             data-id="${id}"
+                            data-selected="false"
                         >
                             <img
                                 class="icon-delete-word"
@@ -54,11 +57,60 @@ async function generateItemsOfDeleteWord() {
 
     const buttonsDeleteItems = window.document.querySelectorAll(".button-delete-word");
 
-    for(let button of buttonsDeleteItems) {
-        button.addEventListener("click", async () => {
-            const { id } = button.dataset;
+    function setStatusItem({ 
+        type, 
+        element 
+    }) {
+        const [ img ] = element.children;
 
-            const headers = new Headers({
+        switch(type) {
+            case "selected":
+                element.style.backgroundColor = "var(--medium-spring-green)";
+                img.src = "assets/icons/icon-check.svg"
+                
+                break;
+            case "no-selected":
+                element.style.backgroundColor = "";
+                img.src = "assets/icons/icon-delete-black.svg"
+                    
+                break;
+            default:
+        }
+    }
+
+    for(let button of buttonsDeleteItems) {
+        button.addEventListener("click", () => {
+            const { id, selected } = button.dataset
+
+            if(selected === "false") {
+                setStatusItem({
+                    element: button,
+                    type: "selected"
+                });
+                
+                button.dataset.selected = "true";
+                itemsSelectedForDelete.push(id);
+            } else {
+                setStatusItem({
+                    element: button,
+                    type: "no-selected"
+                });
+                
+                button.dataset.selected = "false";
+                
+                const newListItems = itemsSelectedForDelete.filter(item => item !== id);
+                
+                itemsSelectedForDelete = newListItems;
+            }
+        })
+    }
+}
+
+generateItemsOfDeleteWord();
+
+
+/**
+ * const headers = new Headers({
                 "Content-Type": "Application/json"
             });
 
@@ -71,8 +123,4 @@ async function generateItemsOfDeleteWord() {
             setTimeout(async () => {
                 await renderItems();
             }, 2000);
-        })
-    }
-}
-
-generateItemsOfDeleteWord();
+ */
