@@ -39,3 +39,6 @@ const dateModifyWord = window.document.getElementById("date-modify-word");
 const inputPortugueseModifyWord = window.document.getElementById("input-portuguese-modify-word");
 const inputEnglishModifyWord = window.document.getElementById("input-english-modify-word");
 const buttonModifyWord = window.document.getElementById("button-modify-word");
+
+// Panel Delete Word
+const areaWordsDelete = window.document.getElementById("area-words-delete");

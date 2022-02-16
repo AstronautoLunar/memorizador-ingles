@@ -1,10 +1,66 @@
 #panel-delete-word {
     display: none;
+    flex-direction: column;
+}
+
+#area-words-delete {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    
+    overflow-y: auto;
+}
+
+#panel-delete-word,
+#area-words-delete,
+#confirm-delete-words
+{
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+}
 
-    overflow-y: auto;
+#confirm-delete-words {
+    width: 100%;
+    padding: 24px 0;
+
+    background-color: var(--space-cadet);
+
+    display: flex;
+}
+
+#text-confirm-delete-words {
+    font-size: 30px;
+
+    color: var(--dark-comflower-blue);
+
+    margin-right: 40px;
+}
+
+#area-buttons-delete-words > button {
+    border: 1px solid var(--dark-comflower-blue);
+    outline: none;
+
+    background-color: transparent;
+
+    padding: 8px 16px;
+
+    font-size: 30px;
+
+    color: var(--dark-comflower-blue);
+
+    border-radius: 24px;
+}
+
+#area-buttons-delete-words > button.primary-button-delete {
+    background-color: var(--paradise-pink);
+    
+    border: 1px solid var(--paradise-pink);
+
+    color: var(--white);
+
+    margin-right: 8px;
 }
 
 .area-item-delete-word {
@@ -16,9 +72,23 @@
 
     height: 75px;
 
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 20px;
+}
+
+.area-item-text {
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .item-delete-word {

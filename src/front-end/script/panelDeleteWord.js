@@ -6,7 +6,7 @@ async function generateItemsOfDeleteWord() {
         const dataJson = await response.json();
         const data = JSON.parse(dataJson);
 
-        panelDeleteWord.innerHTML = "";
+        areaWordsDelete.innerHTML = "";
 
         data.words.forEach(({
             id,
@@ -17,7 +17,7 @@ async function generateItemsOfDeleteWord() {
             const { original } = randomColorRgb();
     
             return (
-                panelDeleteWord.innerHTML += `
+                areaWordsDelete.innerHTML += `
                     <div 
                         class="area-item-delete-word"
                         style="
@@ -25,17 +25,19 @@ async function generateItemsOfDeleteWord() {
                             border-color: ${original};
                         "
                     >
-                        <span 
-                            class="item item-delete-word"
-                            data-translate="${BR}"
-                            data-original="${US}"
-                            data-id="${id}"
-                            data-datetime="${date}"
-                            data-color="${original}"
-                            data-selected="false"
-                        >
-                            ${ US }
-                        </span>
+                        <div class="area-item-text">
+                            <span 
+                                class="item item-delete-word"
+                                data-translate="${BR}"
+                                data-original="${US}"
+                                data-id="${id}"
+                                data-datetime="${date}"
+                                data-color="${original}"
+                                data-selected="false"
+                            >
+                                ${ US }
+                            </span>
+                        </div>
                         <button 
                             class="button-delete-word"
                             data-id="${id}"
@@ -102,6 +104,10 @@ async function generateItemsOfDeleteWord() {
                 
                 itemsSelectedForDelete = newListItems;
             }
+
+            // if(itemsSelectedForDelete.length) {
+
+            // }
         })
     }
 }
