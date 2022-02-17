@@ -2,7 +2,10 @@ import { Request, Response } from "express";
 import fileSystem from "fs";
 import path from "path";
 
-import { BodyDeleteWordProps } from "../../../@types";
+import { 
+    BodyDeleteWordProps, 
+    WordsProps 
+} from "../../../@types";
 import { data } from "../../../../data";
 import { createTodayDate } from "../../../utils";
 
@@ -11,19 +14,24 @@ const deleteWord = (
     response: Response
 ) => {
     const {
-        id
+        listId
     }: BodyDeleteWordProps = request.body;
 
-    const isIdString = typeof id === "string";
+    const isListIdArray = Array.isArray(listId);
 
-    if(!isIdString) {
-        response.status(400).send("O tipo id não é válido, somente é aceito do tipo texto");
+    if(!isListIdArray) {
+        response.status(400).send("Tipo invalido de 'listId'");
+    } else if (!listId.length) {
+        response.status(400).send("Nenhum card para remover");
     } else {
         const newData = data;
+        let newWords: WordsProps[] = [];
 
-        const newWords = newData.words.filter(item => item.id !== id);
+        for(let id of listId) {
+            newWords = newData.words.filter(item => item.id !== id);
 
-        newData.words = newWords
+            newData.words = newWords;
+        }
 
         response.end();
 

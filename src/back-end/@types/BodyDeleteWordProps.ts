@@ -1,5 +1,5 @@
 type BodyDeleteWordProps = {
-    id: string;
+    listId: string[];
 }
 
 export default BodyDeleteWordProps;
