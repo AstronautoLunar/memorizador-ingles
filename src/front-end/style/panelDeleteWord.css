@@ -8,13 +8,15 @@
     height: 100%;
 
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
     flex-wrap: wrap;
     
     overflow-y: auto;
 }
 
 #panel-delete-word,
-#area-words-delete,
 #confirm-delete-words
 {
     justify-content: center;
@@ -37,6 +39,9 @@
 
     transition-property: height, padding;
     transition-duration: 500ms;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 #text-confirm-delete-words {
