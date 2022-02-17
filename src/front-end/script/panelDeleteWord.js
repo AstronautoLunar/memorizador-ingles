@@ -1,5 +1,36 @@
 let itemsSelectedForDelete = [ ];
 
+function setStatusItem({ 
+    type, 
+    element 
+}) {
+    const [ img ] = element.children;
+
+    switch(type) {
+        case "selected":
+            element.style.backgroundColor = "var(--medium-spring-green)";
+            img.src = "assets/icons/icon-check.svg"
+            
+            break;
+        case "no-selected":
+            element.style.backgroundColor = "";
+            img.src = "assets/icons/icon-delete-black.svg"
+                
+            break;
+        default:
+    }
+}
+
+function verifyConfirmPanelDelete() {
+    if(itemsSelectedForDelete.length) {
+        confirmDeleteWords.style.height = "110px";
+        confirmDeleteWords.style.padding = "24px 0";
+    } else {
+        confirmDeleteWords.style.height = "";
+        confirmDeleteWords.style.padding = "";
+    }
+}
+
 async function generateItemsOfDeleteWord() {
     async function renderItems() {
         const response = await fetch("http://localhost:4444/api/getWords");
@@ -59,27 +90,6 @@ async function generateItemsOfDeleteWord() {
 
     const buttonsDeleteItems = window.document.querySelectorAll(".button-delete-word");
 
-    function setStatusItem({ 
-        type, 
-        element 
-    }) {
-        const [ img ] = element.children;
-
-        switch(type) {
-            case "selected":
-                element.style.backgroundColor = "var(--medium-spring-green)";
-                img.src = "assets/icons/icon-check.svg"
-                
-                break;
-            case "no-selected":
-                element.style.backgroundColor = "";
-                img.src = "assets/icons/icon-delete-black.svg"
-                    
-                break;
-            default:
-        }
-    }
-
     for(let button of buttonsDeleteItems) {
         button.addEventListener("click", () => {
             const { id, selected } = button.dataset
@@ -105,32 +115,51 @@ async function generateItemsOfDeleteWord() {
                 itemsSelectedForDelete = newListItems;
             }
 
-            if(itemsSelectedForDelete.length) {
-                confirmDeleteWords.style.height = "110px";
-                confirmDeleteWords.style.padding = "24px 0";
-            } else {
-                confirmDeleteWords.style.height = "";
-                confirmDeleteWords.style.padding = "";
-            }
+            // if(itemsSelectedForDelete.length) {
+            //     confirmDeleteWords.style.height = "110px";
+            //     confirmDeleteWords.style.padding = "24px 0";
+            // } else {
+            //     confirmDeleteWords.style.height = "";
+            //     confirmDeleteWords.style.padding = "";
+            // }
+            verifyConfirmPanelDelete();
         })
     }
 }
 
 generateItemsOfDeleteWord();
 
+buttonDelete.addEventListener("click", () => {
+    /**
+     * const headers = new Headers({
+                    "Content-Type": "Application/json"
+                });
+    
+                await fetch("http://localhost:4444/api/deleteWord", {
+                    headers,
+                    method: "DELETE",
+                    body: JSON.stringify({ id })
+                });
+    
+                setTimeout(async () => {
+                    await renderItems();
+                }, 2000);
+     */
+});
 
-/**
- * const headers = new Headers({
-                "Content-Type": "Application/json"
-            });
+buttonDeselect.addEventListener("click", () => {
+    itemsSelectedForDelete = [];
 
-            await fetch("http://localhost:4444/api/deleteWord", {
-                headers,
-                method: "DELETE",
-                body: JSON.stringify({ id })
-            });
+    verifyConfirmPanelDelete();
 
-            setTimeout(async () => {
-                await renderItems();
-            }, 2000);
- */
+    const buttonsDeleteItems = window.document.querySelectorAll(".button-delete-word");
+
+    for(let button of buttonsDeleteItems) {
+        setStatusItem({
+            element: button,
+            type: "no-selected"
+        });
+        
+        button.dataset.selected = "false";
+    }
+});
