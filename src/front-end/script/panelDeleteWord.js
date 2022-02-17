@@ -105,9 +105,13 @@ async function generateItemsOfDeleteWord() {
                 itemsSelectedForDelete = newListItems;
             }
 
-            // if(itemsSelectedForDelete.length) {
-
-            // }
+            if(itemsSelectedForDelete.length) {
+                confirmDeleteWords.style.height = "110px";
+                confirmDeleteWords.style.padding = "24px 0";
+            } else {
+                confirmDeleteWords.style.height = "";
+                confirmDeleteWords.style.padding = "";
+            }
         })
     }
 }

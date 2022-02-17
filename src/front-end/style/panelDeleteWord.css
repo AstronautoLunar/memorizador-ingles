@@ -23,11 +23,20 @@
 
 #confirm-delete-words {
     width: 100%;
-    padding: 24px 0;
+    height: 0;
+    /* height: 110px; */
+
+    padding: 0;
+    /* padding: 24px 0; */
 
     background-color: var(--space-cadet);
 
     display: flex;
+
+    overflow: hidden;
+
+    transition-property: height, padding;
+    transition-duration: 500ms;
 }
 
 #text-confirm-delete-words {

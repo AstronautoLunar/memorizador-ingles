@@ -42,3 +42,4 @@ const buttonModifyWord = window.document.getElementById("button-modify-word");
 
 // Panel Delete Word
 const areaWordsDelete = window.document.getElementById("area-words-delete");
+const confirmDeleteWords = window.document.getElementById("confirm-delete-words");
