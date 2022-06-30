@@ -1,7 +1,7 @@
 export type WordsProps = {
     id: string;
     US: string;
-    BR: string;
+    BR: string | string[];
     date: string;
 }
 

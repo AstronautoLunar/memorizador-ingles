@@ -20,11 +20,13 @@ verifyButton.addEventListener("click", ({ target }) => {
         time: HALFASECONDSINMILISECONDS
     });
 
-    const answerValue = inputAnswer.value;
-    const translateValue = itemSelected.translate;
+    const answerValue = inputAnswer.value.toUpperCase();
+    let translateValue;
+
+    translateValue = itemSelected.translate.split(",").map(word => word.toUpperCase());
 
     if(answerValue) {
-        if(answerValue === translateValue) {
+        if(translateValue.includes(answerValue)) {
             wordResponse.classList.add("hit-word");
             wordResponse.classList.remove("miss-word");
             
@@ -34,7 +36,7 @@ verifyButton.addEventListener("click", ({ target }) => {
         }
     }
 
-    wordResponse.innerText = answerValue;
+    wordResponse.innerText = inputAnswer.value;
 });
 
 nextButton.addEventListener("click", ({ target }) => {

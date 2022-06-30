@@ -42,9 +42,11 @@ function restoreStyleButtonAddWord() {
 }
 
 buttonAddWord.addEventListener("click", async () => {
+    const listWords = valueInputWordBR.split(" ");
+
     const data = {
         US: valueInputWordUS,
-        BR: valueInputWordBR
+        BR: listWords
     };
 
     const { status, reason } = await sendAddWord(data);

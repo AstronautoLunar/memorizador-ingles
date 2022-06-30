@@ -6,6 +6,8 @@ async function generateElementsOfItems(children) {
     const dataJson = await response.json();
     const data = JSON.parse(dataJson);
 
+    console.log(data);
+
     data.words.forEach(({ 
         US,
         BR,

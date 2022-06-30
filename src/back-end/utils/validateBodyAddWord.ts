@@ -8,7 +8,7 @@ function validateBodyAddWord(request: Request): boolean {
     }: RequestBodyAddWordProps = request.body;
 
     const isUSString = typeof US === "string";
-    const isBRString = typeof BR === "string";
+    const isBRString = typeof BR === "string" || Array.isArray(BR);
     const isPassed = 
         isUSString 
         && 

@@ -1,6 +1,6 @@
 interface RequestBodyAddWordProps {
     US: string;
-    BR: string;
+    BR: string | string[];
 }
 
 export default RequestBodyAddWordProps;
