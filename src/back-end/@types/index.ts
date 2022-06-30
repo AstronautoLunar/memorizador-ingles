@@ -1,5 +1,5 @@
 import RequestBodyAddWordProps from "./RequestBodyAddWordProps";
-import BodyModifyWordProps from "./BodyModifyWordProps";
+import BodyModifyWordProps from "./bodyModifyWordProps";
 import BodyDeleteWordProps from "./BodyDeleteWordProps";
 import { 
     DataProps,
