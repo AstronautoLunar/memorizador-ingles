@@ -20,6 +20,12 @@ async function sendAddWord(data) {
         body: JSON.stringify(data)
     });
 
+    
+    inputWordBR.value = "";
+    inputWordUS.value = "";
+
+    inputWordUS.focus();
+
     return {
         status: responseFetch.status,
         reason: await responseFetch.text()
